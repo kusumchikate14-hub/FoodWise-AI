@@ -9,6 +9,7 @@ import joblib
 import numpy as np
 import pandas as pd
 import os
+from flask import Flask, jsonify, request, send_from_directory
 
 
 # =========================================================
@@ -20,11 +21,14 @@ PROJECT_DIR = os.path.dirname(BASE_DIR)
 
 load_dotenv(os.path.join(BASE_DIR, ".env"))
 
-MODEL_PATH = os.path.join(
-    PROJECT_DIR,
-    "ml-model",
-    "models",
-    "food_waste_model_v2.pkl"
+MODEL_PATH = os.getenv(
+    "WASTE_MODEL_PATH",
+    os.path.join(
+        PROJECT_DIR,
+        "ml-model",
+        "models",
+        "food_waste_model_v2.pkl"
+    )
 )
 
 DATASET_PATH = os.path.join(
@@ -38,11 +42,14 @@ DATASET_PATH = os.path.join(
 # DEMAND FORECASTING FILE PATHS
 # =========================================================
 
-DEMAND_MODEL_PATH = os.path.join(
-    PROJECT_DIR,
-    "ml-model",
-    "models",
-    "food_demand_model_v2.pkl"
+DEMAND_MODEL_PATH = os.getenv(
+    "DEMAND_MODEL_PATH",
+    os.path.join(
+        PROJECT_DIR,
+        "ml-model",
+        "models",
+        "food_demand_model_v2.pkl"
+    )
 )
 
 DEMAND_TRAIN_PATH = os.path.join(
@@ -70,7 +77,12 @@ DEMAND_MODEL_NAME = "FoodWise AI Demand Forecasting V2"
 
 MODEL_NAME = "FoodWise AI Waste Prediction V2"
 
-app = Flask(__name__)
+app = Flask(
+    __name__,
+    static_folder=os.path.join(PROJECT_DIR, "frontend"),
+    static_url_path=""
+)
+
 CORS(app)
 
 
@@ -431,11 +443,10 @@ def close_database_resources(cursor=None, connection=None):
 
 @app.route("/", methods=["GET"])
 def home():
-    return jsonify({
-        "project": "FoodWise AI",
-        "message": "FoodWise AI backend is running!",
-        "status": "success"
-    })
+    return send_from_directory(
+        os.path.join(PROJECT_DIR, "frontend"),
+        "index.html"
+    )
 
 
 @app.route("/api/routes", methods=["GET"])
