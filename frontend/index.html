@@ -1,0 +1,726 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FoodWise AI | Food Waste Management</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+<div class="app-layout">
+
+    <aside class="sidebar" id="appSidebar">
+        <div class="brand">
+            <div class="brand-icon"></div>
+            <div>
+                <h2>FoodWise AI</h2>
+                <small>Smart Food Management</small>
+            </div>
+        </div>
+
+        <nav class="navigation" aria-label="Main navigation">
+            <button class="nav-link active" data-section="dashboard">Dashboard</button>
+            <button class="nav-link" data-section="prediction">Waste Prediction</button>
+            <button class="nav-link" data-section="demand">Demand Forecasting</button>
+            <button class="nav-link" data-section="inventory">Inventory</button>
+            <button class="nav-link" data-section="history">Prediction History</button>
+            <button class="nav-link" data-section="donations">Food Donations</button>
+        </nav>
+
+        <div class="sidebar-footer">
+            <span class="status-dot"></span>
+            Backend connection
+            <small id="connectionStatus">Checking...</small>
+        </div>
+    </aside>
+    <div class="mobile-nav-backdrop" id="mobileNavBackdrop" aria-hidden="true"></div>
+
+    <main class="main-content">
+
+        <header class="topbar">
+            <button
+                type="button"
+                class="mobile-nav-toggle"
+                id="mobileNavToggle"
+                aria-label="Open navigation menu"
+                aria-controls="appSidebar"
+                aria-expanded="false"
+            >
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <div>
+                <h1 id="pageTitle">Dashboard</h1>
+                <p>Monitor food waste and manage your inventory.</p>
+            </div>
+            <div class="topbar-right">
+                <span class="date-label" id="todayDate"></span>
+                <div class="profile-icon">FW</div>
+            </div>
+        </header>
+
+        <!-- DASHBOARD -->
+        <section class="page-section active" id="dashboard">
+            <div class="welcome-panel">
+                <div>
+                    <h2>Welcome to FoodWise AI </h2>
+                    <p>Make smarter food inventory decisions and help reduce food waste.</p>
+                </div>
+                <span class="welcome-icon"></span>
+            </div>
+
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-icon purple" aria-hidden="true">W</div>
+                    <p>Total Food Waste</p>
+                    <h2 id="totalWaste">--</h2>
+                    <small>Units in synthetic dataset</small>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-icon blue">▦</div>
+                    <p>Food Categories</p>
+                    <h2 id="categories">--</h2>
+                    <small>Categories represented</small>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-icon green">✓</div>
+                    <p>Saved Predictions</p>
+                    <h2 id="totalPredictions">--</h2>
+                    <small>Stored in MySQL</small>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-icon orange" aria-hidden="true">!</div>
+                    <p>High Waste Predictions</p>
+                    <h2 id="highPredictions">--</h2>
+                    <small>Stored in MySQL</small>
+                </div>
+            </div>
+
+            <div class="charts-grid">
+                <div class="panel chart-panel">
+                    <div class="panel-heading">
+                        <div>
+                            <h3>Waste by Food Category</h3>
+                            <p>Waste quantities from the training dataset</p>
+                        </div>
+                    </div>
+                    <div class="chart-container">
+                        <canvas id="categoryChart" role="img" aria-label="Bar chart showing waste quantities by food category"></canvas>
+                    </div>
+                </div>
+
+                <div class="panel chart-panel">
+                    <div class="panel-heading">
+                        <div>
+                            <h3>Prediction Distribution</h3>
+                            <p>Predictions saved in the database</p>
+                        </div>
+                    </div>
+                    <div class="chart-container">
+                        <canvas id="predictionChart" role="img" aria-label="Doughnut chart showing the distribution of saved waste predictions"></canvas>
+                    </div>
+                </div>
+            </div>
+
+            <p class="notice">
+                Note: Dataset statistics are based on synthetic data created for this project.
+                Model predictions are experimental and should not be treated as guaranteed outcomes.
+            </p>
+
+            <div class="panel">
+                <div class="panel-heading">
+                    <div>
+                        <h3>Recent Predictions</h3>
+                        <p>Your latest saved waste predictions</p>
+                    </div>
+                    <button class="btn btn-outline" id="dashboardHistoryRefresh">Refresh</button>
+                </div>
+                <div class="table-wrapper">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Business</th>
+                                <th>Food Category</th>
+                                <th>Waste Level</th>
+                                <th>Date</th>
+                            </tr>
+                        </thead>
+                        <tbody id="dashboardRecentBody">
+                            <tr><td colspan="5" class="empty-state">Loading predictions...</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <!-- WASTE PREDICTION -->
+        <section class="page-section" id="prediction">
+            <div class="section-intro">
+                <p>Enter food and business details to estimate the potential waste level.</p>
+            </div>
+
+            <div class="panel form-panel">
+                <form id="predictionForm">
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label for="businessType">Business Type *</label>
+                            <select id="businessType" required>
+                                <option value="">Select business type</option>
+                                <option>Supermarket</option>
+                                <option>Restaurant</option>
+                                <option>Cloud Kitchen</option>
+                                <option>Cafeteria</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="foodCategory">Food Category *</label>
+                            <select id="foodCategory" required>
+                                <option value="">Select food category</option>
+                                <option>Prepared Food</option>
+                                <option>Fruits</option>
+                                <option>Bakery</option>
+                                <option>Vegetables</option>
+                                <option>Meat</option>
+                                <option>Dairy</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="purchaseQuantity">Purchase Quantity *</label>
+                            <input type="number" id="purchaseQuantity" min="0.01" step="0.01" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="shelfLife">Shelf Life (Days) *</label>
+                            <input type="number" id="shelfLife" min="0" step="1" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="storageTemperature">Storage Temperature (°C) *</label>
+                            <input type="number" id="storageTemperature" step="0.1" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="promotion">Promotion *</label>
+                            <select id="promotion" required>
+                                <option value="">Select promotion status</option>
+                                <option>Yes</option>
+                                <option>No</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="weather">Weather *</label>
+                            <select id="weather" required>
+                                <option value="">Select weather</option>
+                                <option>Sunny</option>
+                                <option>Rainy</option>
+                                <option>Cloudy</option>
+                                <option>Hot</option>
+                                <option>Cold</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="predictionDate">Prediction Date *</label>
+                            <input type="date" id="predictionDate" required>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary">Generate Waste Prediction</button>
+                </form>
+
+                <div id="predictionResult" class="result-box hidden"></div>
+            </div>
+        </section>
+        <!-- DEMAND FORECASTING -->
+        <section class="page-section" id="demand">
+
+            <div class="section-intro">
+                <p>
+                    Estimate the expected number of food orders using
+                    the trained machine learning model.
+                </p>
+            </div>
+
+            <div class="panel form-panel">
+
+                <div class="panel-heading">
+                    <div>
+                        <h3>Generate Demand Prediction</h3>
+                        <p>
+                            Enter fulfilment centre, meal, pricing
+                            and promotion details.
+                        </p>
+                    </div>
+                </div>
+
+                <form id="demandForm">
+
+                    <div class="form-grid">
+
+                        <div class="form-group">
+                            <label for="centerId">
+                                Fulfilment Centre ID *
+                            </label>
+                            <input
+                                type="number"
+                                id="centerId"
+                                min="1"
+                                step="1"
+                                placeholder="Example: 186"
+                                required
+                            >
+                        </div>
+
+                        <div class="form-group">
+                            <label for="mealId">
+                                Meal ID *
+                            </label>
+                            <input
+                                type="number"
+                                id="mealId"
+                                min="1"
+                                step="1"
+                                placeholder="Example: 2707"
+                                required
+                            >
+                        </div>
+
+                        <div class="form-group">
+                            <label for="forecastWeek">
+                                Forecast Week *
+                            </label>
+                            <input
+                                type="number"
+                                id="forecastWeek"
+                                min="1"
+                                step="1"
+                                value="146"
+                                required
+                            >
+                        </div>
+
+                        <div class="form-group">
+                            <label for="checkoutPrice">
+                                Checkout Price *
+                            </label>
+                            <input
+                                type="number"
+                                id="checkoutPrice"
+                                min="0.01"
+                                step="0.01"
+                                placeholder="Example: 196"
+                                required
+                            >
+                        </div>
+
+                        <div class="form-group">
+                            <label for="basePrice">
+                                Base Price *
+                            </label>
+                            <input
+                                type="number"
+                                id="basePrice"
+                                min="0.01"
+                                step="0.01"
+                                placeholder="Example: 195"
+                                required
+                            >
+                        </div>
+
+                        <div class="form-group">
+                            <label for="emailerPromotion">
+                                Email Promotion *
+                            </label>
+                            <select id="emailerPromotion" required>
+                                <option value="0">No</option>
+                                <option value="1">Yes</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="homepageFeatured">
+                                Homepage Featured *
+                            </label>
+                            <select id="homepageFeatured" required>
+                                <option value="0">No</option>
+                                <option value="1">Yes</option>
+                            </select>
+                        </div>
+
+                    </div>
+
+                    <button
+                        type="submit"
+                        class="btn btn-primary"
+                        id="demandSubmitBtn"
+                    >
+                        Generate Demand Forecast
+                    </button>
+
+                </form>
+
+                <div
+                    id="demandResult"
+                    class="result-box hidden"
+                ></div>
+
+            </div>
+
+            <p class="notice">
+                Note: Demand predictions are experimental estimates
+                based on the Food Demand Forecasting Kaggle dataset.
+                They are not guaranteed actual orders.
+            </p>
+
+        </section>
+
+        
+        <!-- INVENTORY -->
+        <section class="page-section" id="inventory">
+            <div class="section-intro">
+                <p>Add and manage food stock, monitor low quantities, and identify approaching expiry dates.</p>
+            </div>
+
+            <div class="inventory-summary">
+                <div class="mini-stat">
+                    <span>Total Items</span>
+                    <strong id="inventoryCount">0</strong>
+                </div>
+                <div class="mini-stat warning-stat">
+                    <span>Low Stock Items</span>
+                    <strong id="lowStockCount">0</strong>
+                </div>
+                <div class="mini-stat danger-stat">
+                    <span>Expiring Soon</span>
+                    <strong id="expiringCount">0</strong>
+                </div>
+                <div class="mini-stat">
+                    <span>Expired Items</span>
+                    <strong id="expiredCount">0</strong>
+                </div>
+            </div>
+
+            <div class="panel">
+                <div class="panel-heading">
+                    <div>
+                        <h3 id="inventoryFormTitle">Add Inventory Item</h3>
+                        <p>Enter the food stock details below.</p>
+                    </div>
+                </div>
+
+                <form id="inventoryForm">
+                    <input type="hidden" id="inventoryId">
+
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label for="itemName">Item Name *</label>
+                            <input type="text" id="itemName" required maxlength="100">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="inventoryCategory">Food Category *</label>
+                            <select id="inventoryCategory" required>
+                                <option value="">Select category</option>
+                                <option>Prepared Food</option>
+                                <option>Fruits</option>
+                                <option>Bakery</option>
+                                <option>Vegetables</option>
+                                <option>Meat</option>
+                                <option>Dairy</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="inventoryBusiness">Business Type *</label>
+                            <select id="inventoryBusiness" required>
+                                <option value="">Select business</option>
+                                <option>Supermarket</option>
+                                <option>Restaurant</option>
+                                <option>Cloud Kitchen</option>
+                                <option>Cafeteria</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="inventoryQuantity">Quantity *</label>
+                            <input type="number" id="inventoryQuantity" min="0" step="0.01" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="inventoryUnit">Unit *</label>
+                            <select id="inventoryUnit" required>
+                                <option value="">Select unit</option>
+                                <option>kg</option>
+                                <option>g</option>
+                                <option>litres</option>
+                                <option>ml</option>
+                                <option>pieces</option>
+                                <option>packets</option>
+                                <option>boxes</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="purchaseDate">Purchase Date *</label>
+                            <input type="date" id="purchaseDate" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="expiryDate">Expiry Date *</label>
+                            <input type="date" id="expiryDate" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="reorderLevel">Low Stock Threshold *</label>
+                            <input type="number" id="reorderLevel" min="0" step="0.01" value="5" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="inventoryTemperature">Storage Temperature (°C)</label>
+                            <input type="number" id="inventoryTemperature" step="0.1">
+                        </div>
+                    </div>
+
+                    <div class="form-actions">
+                        <button type="submit" class="btn btn-primary" id="inventorySubmitBtn">Add Item</button>
+                        <button type="button" class="btn btn-outline hidden" id="cancelEditBtn">Cancel Edit</button>
+                    </div>
+                </form>
+                <div id="inventoryMessage" class="message-box hidden"></div>
+            </div>
+
+            <div class="panel">
+                <div class="panel-heading inventory-heading">
+                    <div>
+                        <h3>Inventory Records</h3>
+                        <p>All food items stored in your MySQL database</p>
+                    </div>
+                    <button class="btn btn-outline" id="refreshInventoryBtn">Refresh</button>
+                </div>
+
+                <div id="inventoryAlerts" class="alert-list"></div>
+
+                <div class="table-wrapper">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>ID</th><th>Item</th><th>Category</th>
+                                <th>Business</th><th>Quantity</th>
+                                <th>Purchase Date</th><th>Expiry Date</th>
+                                <th>Stock Status</th><th>Expiry Status</th><th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="inventoryTableBody">
+                            <tr><td colspan="10" class="empty-state">Loading inventory...</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <!-- PREDICTION HISTORY -->
+        <section class="page-section" id="history">
+            <div class="section-intro">
+                <p>Review waste predictions saved in your database.</p>
+            </div>
+
+            <div class="panel">
+                <div class="panel-heading">
+                    <div>
+                        <h3>All Saved Predictions</h3>
+                        <p>Latest records appear first.</p>
+                    </div>
+                    <button class="btn btn-outline" id="refreshHistoryBtn">Refresh History</button>
+                </div>
+
+                <div class="table-wrapper">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>ID</th><th>Business</th><th>Food Category</th>
+                                <th>Quantity</th><th>Waste Level</th>
+                                <th>High %</th><th>Medium %</th><th>Low %</th><th>Date</th>
+                            </tr>
+                        </thead>
+                        <tbody id="historyTableBody">
+                            <tr><td colspan="9" class="empty-state">Loading history...</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <!-- FOOD DONATIONS -->
+        <section class="page-section" id="donations">
+            <div class="section-intro">
+                <p>Register surplus food donations and track their progress.</p>
+            </div>
+
+            <div class="inventory-summary">
+                <div class="mini-stat">
+                    <span>Total Donations</span>
+                    <strong id="donationCount">0</strong>
+                </div>
+                <div class="mini-stat warning-stat">
+                    <span>Pending</span>
+                    <strong id="pendingDonationCount">0</strong>
+                </div>
+                <div class="mini-stat">
+                    <span>Accepted</span>
+                    <strong id="acceptedDonationCount">0</strong>
+                </div>
+                <div class="mini-stat">
+                    <span>Completed</span>
+                    <strong id="completedDonationCount">0</strong>
+                </div>
+            </div>
+
+            <div class="panel">
+                <div class="panel-heading">
+                    <div>
+                        <h3 id="donationFormTitle">Register Food Donation</h3>
+                        <p>Enter the food and recipient details.</p>
+                    </div>
+                </div>
+
+                <form id="donationForm">
+                    <input type="hidden" id="donationId">
+
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label for="donationFoodName">Food Name *</label>
+                            <input type="text" id="donationFoodName" required maxlength="150">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="donationCategory">Food Category *</label>
+                            <select id="donationCategory" required>
+                                <option value="">Select category</option>
+                                <option>Prepared Food</option>
+                                <option>Fruits</option>
+                                <option>Bakery</option>
+                                <option>Vegetables</option>
+                                <option>Meat</option>
+                                <option>Dairy</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="donationQuantity">Quantity *</label>
+                            <input type="number" id="donationQuantity" min="0.01" step="0.01" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="donationUnit">Unit *</label>
+                            <select id="donationUnit" required>
+                                <option value="">Select unit</option>
+                                <option>kg</option>
+                                <option>g</option>
+                                <option>litres</option>
+                                <option>ml</option>
+                                <option>pieces</option>
+                                <option>packets</option>
+                                <option>boxes</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="donorName">Donor Name *</label>
+                            <input type="text" id="donorName" required maxlength="150">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="recipientName">Recipient Name / Organization *</label>
+                            <input type="text" id="recipientName" required maxlength="150">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="recipientContact">Recipient Contact</label>
+                            <input type="text" id="recipientContact" maxlength="30">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="donationDate">Donation Date *</label>
+                            <input type="date" id="donationDate" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="donationExpiryDate">Food Expiry Date *</label>
+                            <input type="date" id="donationExpiryDate" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="donationStatus">Donation Status *</label>
+                            <select id="donationStatus" required>
+                                <option>Pending</option>
+                                <option>Accepted</option>
+                                <option>Completed</option>
+                                <option>Cancelled</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group full-width">
+                            <label for="donationNotes">Additional Notes</label>
+                            <input type="text" id="donationNotes" maxlength="500"
+                                   placeholder="Optional details about the donation">
+                        </div>
+                    </div>
+
+                    <div class="form-actions">
+                        <button type="submit" class="btn btn-primary" id="donationSubmitBtn">
+                            Register Donation
+                        </button>
+                        <button type="button" class="btn btn-outline hidden" id="cancelDonationEditBtn">
+                            Cancel Edit
+                        </button>
+                    </div>
+                </form>
+
+                <div id="donationMessage" class="message-box hidden"></div>
+            </div>
+
+            <div class="panel">
+                <div class="panel-heading inventory-heading">
+                    <div>
+                        <h3>Donation Records</h3>
+                        <p>Manage donations stored in your MySQL database.</p>
+                    </div>
+                    <button class="btn btn-outline" id="refreshDonationsBtn">Refresh Donations</button>
+                </div>
+
+                <div class="table-wrapper">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>ID</th><th>Food</th><th>Category</th>
+                                <th>Quantity</th><th>Donor</th><th>Recipient</th>
+                                <th>Contact</th><th>Donation Date</th><th>Expiry Date</th>
+                                <th>Status</th><th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="donationTableBody">
+                            <tr><td colspan="11" class="empty-state">Loading donations...</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <footer class="footer">
+            FoodWise AI · College Project · SDG 12 Responsible Consumption and Production
+        </footer>
+    </main>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>

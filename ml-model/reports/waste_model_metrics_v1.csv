@@ -1,0 +1,8 @@
+Metric,Value
+Accuracy,0.89375
+Weighted_Precision,0.895063492773255
+Weighted_Recall,0.89375
+Weighted_F1_Score,0.8937749126283603
+Best_Iteration,208.0
+Training_Records,6400.0
+Validation_Records,1600.0

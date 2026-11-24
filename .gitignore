@@ -1,0 +1,33 @@
+
+# Python virtual environments
+venv/
+.venv/
+env/
+ml-model/venv/
+backend/venv/
+
+# Python cache
+__pycache__/
+*.py[cod]
+
+# Environment variables and secrets
+.env
+.env.*
+!.env.example
+
+# Machine learning model files
+*.pkl
+*.joblib
+
+# IDE
+.vscode/
+.idea/
+
+# Logs and temporary files
+*.log
+.DS_Store
+
+# Build files
+build/
+dist/
+*.egg-info/

@@ -1,0 +1,10 @@
+Metric,Value
+Accuracy,0.6708479678876066
+Weighted_Precision,0.6807799912440317
+Weighted_Recall,0.6708479678876066
+Weighted_F1,0.6745283651760474
+Macro_F1,0.6408751240977756
+High_Waste_Recall,0.6764705882352942
+Best_Iteration,413.0
+Training_Records,6007.0
+Validation_Records,1993.0

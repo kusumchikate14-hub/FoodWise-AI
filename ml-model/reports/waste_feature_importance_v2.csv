@@ -1,0 +1,25 @@
+Feature,Importance
+categorical__Weather_Rainy,0.20947671
+categorical__Weather_Cloudy,0.06393866
+categorical__Business_Type_Supermarket,0.062032152
+categorical__Promotion_Yes,0.05483094
+categorical__Business_Type_Restaurant,0.05457544
+categorical__Business_Type_Cafeteria,0.05239603
+categorical__Business_Type_Cloud Kitchen,0.05200202
+categorical__Promotion_No,0.047590967
+categorical__Weather_Hot,0.046649083
+numerical__Purchase_Quantity,0.046174396
+numerical__Shelf_Life_Days,0.038128536
+categorical__Weather_Sunny,0.03617644
+categorical__Food_Category_Prepared Food,0.023288518
+numerical__Storage_Temperature,0.022742275
+categorical__Food_Category_Dairy,0.02181459
+numerical__Month_Cos,0.019712714
+categorical__Food_Category_Fruits,0.0193187
+numerical__Month_Sin,0.019028807
+numerical__Day_of_Week,0.018928392
+numerical__Day_of_Month,0.018708907
+categorical__Food_Category_Meat,0.018399604
+numerical__Month,0.01820649
+categorical__Food_Category_Vegetables,0.018009668
+categorical__Food_Category_Bakery,0.017869867

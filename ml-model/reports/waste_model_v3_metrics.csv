@@ -1,0 +1,2 @@
+Model,Accuracy,Weighted_Precision,Weighted_Recall,Weighted_F1,Macro_F1,Best_Configuration,Validation_Records
+FoodWise Waste Prediction V3,0.6698444555945811,0.6794391121373736,0.6698444555945811,0.6728961161114565,0.6350433153258382,Config_B,1993

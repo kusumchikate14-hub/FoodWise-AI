@@ -1,0 +1,9 @@
+Metric,Value
+MAE,71.42677307128906
+RMSE,173.93389548906217
+R2,0.7623341083526611
+R2_Percentage,76.23341083526611
+Best_Iteration,291.0
+Training_Records,362287.0
+Validation_Records,65564.0
+Validation_Start_Week,126.0

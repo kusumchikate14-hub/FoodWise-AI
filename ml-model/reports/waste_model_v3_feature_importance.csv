@@ -1,0 +1,25 @@
+Feature,Mean_Importance
+cat__Weather_Rainy,0.21992786
+cat__Business_Type_Supermarket,0.063747585
+cat__Weather_Cloudy,0.060811114
+cat__Business_Type_Restaurant,0.060668677
+cat__Business_Type_Cloud Kitchen,0.054644495
+cat__Business_Type_Cafeteria,0.05225856
+cat__Weather_Hot,0.051171374
+num__Purchase_Quantity,0.050656985
+cat__Promotion_Yes,0.049206957
+cat__Promotion_No,0.048420586
+num__Shelf_Life_Days,0.047588848
+cat__Weather_Sunny,0.043421533
+cat__Food_Category_Prepared Food,0.023863487
+num__Storage_Temperature,0.020905638
+cat__Food_Category_Dairy,0.017392453
+num__Month_Cos,0.016686788
+num__Day_of_Week,0.015840184
+cat__Food_Category_Meat,0.015523466
+num__Month_Sin,0.015427647
+num__Day_of_Month,0.015255818
+num__Month,0.015128459
+cat__Food_Category_Vegetables,0.01461038
+cat__Food_Category_Fruits,0.013435957
+cat__Food_Category_Bakery,0.013405165

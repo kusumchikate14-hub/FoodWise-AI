@@ -1,0 +1,311 @@
+Experiment,Random_Seed,Feature,Importance
+Baseline,21,num__Purchase_Quantity,0.046852645
+Baseline,21,num__Shelf_Life_Days,0.040378317
+Baseline,21,num__Storage_Temperature,0.021712275
+Baseline,21,num__Month,0.018002914
+Baseline,21,num__Day_of_Week,0.018276388
+Baseline,21,num__Day_of_Month,0.0187822
+Baseline,21,num__Month_Sin,0.01766134
+Baseline,21,num__Month_Cos,0.018506683
+Baseline,21,cat__Business_Type_Cafeteria,0.052401066
+Baseline,21,cat__Business_Type_Cloud Kitchen,0.050026003
+Baseline,21,cat__Business_Type_Restaurant,0.050348647
+Baseline,21,cat__Business_Type_Supermarket,0.06338546
+Baseline,21,cat__Food_Category_Bakery,0.016888693
+Baseline,21,cat__Food_Category_Dairy,0.020907205
+Baseline,21,cat__Food_Category_Fruits,0.016759187
+Baseline,21,cat__Food_Category_Meat,0.01921316
+Baseline,21,cat__Food_Category_Prepared Food,0.027455432
+Baseline,21,cat__Food_Category_Vegetables,0.01707467
+Baseline,21,cat__Promotion_No,0.04762167
+Baseline,21,cat__Promotion_Yes,0.04727283
+Baseline,21,cat__Weather_Cloudy,0.049911737
+Baseline,21,cat__Weather_Hot,0.05336335
+Baseline,21,cat__Weather_Rainy,0.2281612
+Baseline,21,cat__Weather_Sunny,0.039036844
+Baseline,42,num__Purchase_Quantity,0.046925645
+Baseline,42,num__Shelf_Life_Days,0.038809285
+Baseline,42,num__Storage_Temperature,0.022458192
+Baseline,42,num__Month,0.017677087
+Baseline,42,num__Day_of_Week,0.018464725
+Baseline,42,num__Day_of_Month,0.018303875
+Baseline,42,num__Month_Sin,0.018866498
+Baseline,42,num__Month_Cos,0.019247724
+Baseline,42,cat__Business_Type_Cafeteria,0.05160117
+Baseline,42,cat__Business_Type_Cloud Kitchen,0.052050486
+Baseline,42,cat__Business_Type_Restaurant,0.05455011
+Baseline,42,cat__Business_Type_Supermarket,0.0615817
+Baseline,42,cat__Food_Category_Bakery,0.017638156
+Baseline,42,cat__Food_Category_Dairy,0.021455424
+Baseline,42,cat__Food_Category_Fruits,0.01854404
+Baseline,42,cat__Food_Category_Meat,0.017996881
+Baseline,42,cat__Food_Category_Prepared Food,0.023123197
+Baseline,42,cat__Food_Category_Vegetables,0.017614413
+Baseline,42,cat__Promotion_No,0.04696827
+Baseline,42,cat__Promotion_Yes,0.05394027
+Baseline,42,cat__Weather_Cloudy,0.065231405
+Baseline,42,cat__Weather_Hot,0.04729859
+Baseline,42,cat__Weather_Rainy,0.21292217
+Baseline,42,cat__Weather_Sunny,0.03673059
+Baseline,63,num__Purchase_Quantity,0.04754797
+Baseline,63,num__Shelf_Life_Days,0.038355928
+Baseline,63,num__Storage_Temperature,0.022408662
+Baseline,63,num__Month,0.017945163
+Baseline,63,num__Day_of_Week,0.018619431
+Baseline,63,num__Day_of_Month,0.018519372
+Baseline,63,num__Month_Sin,0.018075021
+Baseline,63,num__Month_Cos,0.01929228
+Baseline,63,cat__Business_Type_Cafeteria,0.055209637
+Baseline,63,cat__Business_Type_Cloud Kitchen,0.049102303
+Baseline,63,cat__Business_Type_Restaurant,0.048518084
+Baseline,63,cat__Business_Type_Supermarket,0.06088093
+Baseline,63,cat__Food_Category_Bakery,0.017352972
+Baseline,63,cat__Food_Category_Dairy,0.020792209
+Baseline,63,cat__Food_Category_Fruits,0.016760133
+Baseline,63,cat__Food_Category_Meat,0.019470477
+Baseline,63,cat__Food_Category_Prepared Food,0.024042198
+Baseline,63,cat__Food_Category_Vegetables,0.017378842
+Baseline,63,cat__Promotion_No,0.049381725
+Baseline,63,cat__Promotion_Yes,0.046149615
+Baseline,63,cat__Weather_Cloudy,0.059596796
+Baseline,63,cat__Weather_Hot,0.05673638
+Baseline,63,cat__Weather_Rainy,0.20972289
+Baseline,63,cat__Weather_Sunny,0.048140924
+Baseline,84,num__Purchase_Quantity,0.04723006
+Baseline,84,num__Shelf_Life_Days,0.039224774
+Baseline,84,num__Storage_Temperature,0.022296874
+Baseline,84,num__Month,0.018456914
+Baseline,84,num__Day_of_Week,0.018037478
+Baseline,84,num__Day_of_Month,0.01857771
+Baseline,84,num__Month_Sin,0.01879015
+Baseline,84,num__Month_Cos,0.018427927
+Baseline,84,cat__Business_Type_Cafeteria,0.05356012
+Baseline,84,cat__Business_Type_Cloud Kitchen,0.050606187
+Baseline,84,cat__Business_Type_Restaurant,0.050762303
+Baseline,84,cat__Business_Type_Supermarket,0.0599069
+Baseline,84,cat__Food_Category_Bakery,0.015855635
+Baseline,84,cat__Food_Category_Dairy,0.02299642
+Baseline,84,cat__Food_Category_Fruits,0.0177284
+Baseline,84,cat__Food_Category_Meat,0.01947971
+Baseline,84,cat__Food_Category_Prepared Food,0.026893273
+Baseline,84,cat__Food_Category_Vegetables,0.018055571
+Baseline,84,cat__Promotion_No,0.047714878
+Baseline,84,cat__Promotion_Yes,0.05197785
+Baseline,84,cat__Weather_Cloudy,0.05343431
+Baseline,84,cat__Weather_Hot,0.051568333
+Baseline,84,cat__Weather_Rainy,0.21195072
+Baseline,84,cat__Weather_Sunny,0.046467435
+Baseline,105,num__Purchase_Quantity,0.04725143
+Baseline,105,num__Shelf_Life_Days,0.03893738
+Baseline,105,num__Storage_Temperature,0.021927435
+Baseline,105,num__Month,0.017620035
+Baseline,105,num__Day_of_Week,0.018107397
+Baseline,105,num__Day_of_Month,0.018305307
+Baseline,105,num__Month_Sin,0.018078055
+Baseline,105,num__Month_Cos,0.018339114
+Baseline,105,cat__Business_Type_Cafeteria,0.052405495
+Baseline,105,cat__Business_Type_Cloud Kitchen,0.0478674
+Baseline,105,cat__Business_Type_Restaurant,0.050803054
+Baseline,105,cat__Business_Type_Supermarket,0.05758883
+Baseline,105,cat__Food_Category_Bakery,0.016960794
+Baseline,105,cat__Food_Category_Dairy,0.0211203
+Baseline,105,cat__Food_Category_Fruits,0.01662219
+Baseline,105,cat__Food_Category_Meat,0.018548315
+Baseline,105,cat__Food_Category_Prepared Food,0.027419623
+Baseline,105,cat__Food_Category_Vegetables,0.01904349
+Baseline,105,cat__Promotion_No,0.048079215
+Baseline,105,cat__Promotion_Yes,0.054755997
+Baseline,105,cat__Weather_Cloudy,0.06370641
+Baseline,105,cat__Weather_Hot,0.051562674
+Baseline,105,cat__Weather_Rainy,0.21272022
+Baseline,105,cat__Weather_Sunny,0.042229842
+Without_Weather,21,num__Purchase_Quantity,0.06769235
+Without_Weather,21,num__Shelf_Life_Days,0.05710976
+Without_Weather,21,num__Storage_Temperature,0.03881178
+Without_Weather,21,num__Month,0.029619053
+Without_Weather,21,num__Day_of_Week,0.031146178
+Without_Weather,21,num__Day_of_Month,0.031432766
+Without_Weather,21,num__Month_Sin,0.03187866
+Without_Weather,21,num__Month_Cos,0.03126377
+Without_Weather,21,cat__Business_Type_Cafeteria,0.0848399
+Without_Weather,21,cat__Business_Type_Cloud Kitchen,0.072977275
+Without_Weather,21,cat__Business_Type_Restaurant,0.05943423
+Without_Weather,21,cat__Business_Type_Supermarket,0.10499563
+Without_Weather,21,cat__Food_Category_Bakery,0.02686714
+Without_Weather,21,cat__Food_Category_Dairy,0.041907698
+Without_Weather,21,cat__Food_Category_Fruits,0.032950398
+Without_Weather,21,cat__Food_Category_Meat,0.02950586
+Without_Weather,21,cat__Food_Category_Prepared Food,0.04028493
+Without_Weather,21,cat__Food_Category_Vegetables,0.030580536
+Without_Weather,21,cat__Promotion_No,0.085453354
+Without_Weather,21,cat__Promotion_Yes,0.07124876
+Without_Weather,42,num__Purchase_Quantity,0.06686109
+Without_Weather,42,num__Shelf_Life_Days,0.055979706
+Without_Weather,42,num__Storage_Temperature,0.03859655
+Without_Weather,42,num__Month,0.028556783
+Without_Weather,42,num__Day_of_Week,0.03074149
+Without_Weather,42,num__Day_of_Month,0.030605419
+Without_Weather,42,num__Month_Sin,0.03260211
+Without_Weather,42,num__Month_Cos,0.029682796
+Without_Weather,42,cat__Business_Type_Cafeteria,0.08014591
+Without_Weather,42,cat__Business_Type_Cloud Kitchen,0.06990324
+Without_Weather,42,cat__Business_Type_Restaurant,0.0679347
+Without_Weather,42,cat__Business_Type_Supermarket,0.10582104
+Without_Weather,42,cat__Food_Category_Bakery,0.025942907
+Without_Weather,42,cat__Food_Category_Dairy,0.041005842
+Without_Weather,42,cat__Food_Category_Fruits,0.03325871
+Without_Weather,42,cat__Food_Category_Meat,0.03162317
+Without_Weather,42,cat__Food_Category_Prepared Food,0.0373769
+Without_Weather,42,cat__Food_Category_Vegetables,0.029745206
+Without_Weather,42,cat__Promotion_No,0.07316007
+Without_Weather,42,cat__Promotion_Yes,0.09045631
+Without_Weather,63,num__Purchase_Quantity,0.06938655
+Without_Weather,63,num__Shelf_Life_Days,0.056325834
+Without_Weather,63,num__Storage_Temperature,0.039826956
+Without_Weather,63,num__Month,0.029958703
+Without_Weather,63,num__Day_of_Week,0.031479206
+Without_Weather,63,num__Day_of_Month,0.032726917
+Without_Weather,63,num__Month_Sin,0.0321433
+Without_Weather,63,num__Month_Cos,0.031390246
+Without_Weather,63,cat__Business_Type_Cafeteria,0.0805242
+Without_Weather,63,cat__Business_Type_Cloud Kitchen,0.076060586
+Without_Weather,63,cat__Business_Type_Restaurant,0.060876522
+Without_Weather,63,cat__Business_Type_Supermarket,0.106947556
+Without_Weather,63,cat__Food_Category_Bakery,0.028103417
+Without_Weather,63,cat__Food_Category_Dairy,0.041000314
+Without_Weather,63,cat__Food_Category_Fruits,0.032206856
+Without_Weather,63,cat__Food_Category_Meat,0.03232421
+Without_Weather,63,cat__Food_Category_Prepared Food,0.037766125
+Without_Weather,63,cat__Food_Category_Vegetables,0.032658063
+Without_Weather,63,cat__Promotion_No,0.08609383
+Without_Weather,63,cat__Promotion_Yes,0.062200677
+Without_Weather,84,num__Purchase_Quantity,0.065706655
+Without_Weather,84,num__Shelf_Life_Days,0.05576866
+Without_Weather,84,num__Storage_Temperature,0.0379012
+Without_Weather,84,num__Month,0.029913826
+Without_Weather,84,num__Day_of_Week,0.030346476
+Without_Weather,84,num__Day_of_Month,0.030865733
+Without_Weather,84,num__Month_Sin,0.031914312
+Without_Weather,84,num__Month_Cos,0.030440064
+Without_Weather,84,cat__Business_Type_Cafeteria,0.08105974
+Without_Weather,84,cat__Business_Type_Cloud Kitchen,0.07311068
+Without_Weather,84,cat__Business_Type_Restaurant,0.06333532
+Without_Weather,84,cat__Business_Type_Supermarket,0.10408608
+Without_Weather,84,cat__Food_Category_Bakery,0.030390395
+Without_Weather,84,cat__Food_Category_Dairy,0.043369476
+Without_Weather,84,cat__Food_Category_Fruits,0.03033141
+Without_Weather,84,cat__Food_Category_Meat,0.030699173
+Without_Weather,84,cat__Food_Category_Prepared Food,0.041293267
+Without_Weather,84,cat__Food_Category_Vegetables,0.029921707
+Without_Weather,84,cat__Promotion_No,0.07714743
+Without_Weather,84,cat__Promotion_Yes,0.08239835
+Without_Weather,105,num__Purchase_Quantity,0.067420386
+Without_Weather,105,num__Shelf_Life_Days,0.057558235
+Without_Weather,105,num__Storage_Temperature,0.038183246
+Without_Weather,105,num__Month,0.028851261
+Without_Weather,105,num__Day_of_Week,0.03104351
+Without_Weather,105,num__Day_of_Month,0.031485856
+Without_Weather,105,num__Month_Sin,0.031078007
+Without_Weather,105,num__Month_Cos,0.030588662
+Without_Weather,105,cat__Business_Type_Cafeteria,0.07910861
+Without_Weather,105,cat__Business_Type_Cloud Kitchen,0.07543927
+Without_Weather,105,cat__Business_Type_Restaurant,0.071441874
+Without_Weather,105,cat__Business_Type_Supermarket,0.10074433
+Without_Weather,105,cat__Food_Category_Bakery,0.030080529
+Without_Weather,105,cat__Food_Category_Dairy,0.039183173
+Without_Weather,105,cat__Food_Category_Fruits,0.034157995
+Without_Weather,105,cat__Food_Category_Meat,0.031821195
+Without_Weather,105,cat__Food_Category_Prepared Food,0.0373525
+Without_Weather,105,cat__Food_Category_Vegetables,0.02971049
+Without_Weather,105,cat__Promotion_No,0.07527229
+Without_Weather,105,cat__Promotion_Yes,0.07947855
+Without_Weather_and_Promotion,21,num__Purchase_Quantity,0.07749245
+Without_Weather_and_Promotion,21,num__Shelf_Life_Days,0.068775706
+Without_Weather_and_Promotion,21,num__Storage_Temperature,0.046822906
+Without_Weather_and_Promotion,21,num__Month,0.036771853
+Without_Weather_and_Promotion,21,num__Day_of_Week,0.038983308
+Without_Weather_and_Promotion,21,num__Day_of_Month,0.03787336
+Without_Weather_and_Promotion,21,num__Month_Sin,0.03855485
+Without_Weather_and_Promotion,21,num__Month_Cos,0.038419098
+Without_Weather_and_Promotion,21,cat__Business_Type_Cafeteria,0.09244385
+Without_Weather_and_Promotion,21,cat__Business_Type_Cloud Kitchen,0.081383176
+Without_Weather_and_Promotion,21,cat__Business_Type_Restaurant,0.067076325
+Without_Weather_and_Promotion,21,cat__Business_Type_Supermarket,0.12370602
+Without_Weather_and_Promotion,21,cat__Food_Category_Bakery,0.034575693
+Without_Weather_and_Promotion,21,cat__Food_Category_Dairy,0.048549768
+Without_Weather_and_Promotion,21,cat__Food_Category_Fruits,0.039882965
+Without_Weather_and_Promotion,21,cat__Food_Category_Meat,0.039205868
+Without_Weather_and_Promotion,21,cat__Food_Category_Prepared Food,0.05104622
+Without_Weather_and_Promotion,21,cat__Food_Category_Vegetables,0.03843665
+Without_Weather_and_Promotion,42,num__Purchase_Quantity,0.07839487
+Without_Weather_and_Promotion,42,num__Shelf_Life_Days,0.06857232
+Without_Weather_and_Promotion,42,num__Storage_Temperature,0.047748733
+Without_Weather_and_Promotion,42,num__Month,0.035242617
+Without_Weather_and_Promotion,42,num__Day_of_Week,0.037776724
+Without_Weather_and_Promotion,42,num__Day_of_Month,0.0381278
+Without_Weather_and_Promotion,42,num__Month_Sin,0.038860712
+Without_Weather_and_Promotion,42,num__Month_Cos,0.037198883
+Without_Weather_and_Promotion,42,cat__Business_Type_Cafeteria,0.092998385
+Without_Weather_and_Promotion,42,cat__Business_Type_Cloud Kitchen,0.083041035
+Without_Weather_and_Promotion,42,cat__Business_Type_Restaurant,0.07317013
+Without_Weather_and_Promotion,42,cat__Business_Type_Supermarket,0.123947866
+Without_Weather_and_Promotion,42,cat__Food_Category_Bakery,0.03180217
+Without_Weather_and_Promotion,42,cat__Food_Category_Dairy,0.04563703
+Without_Weather_and_Promotion,42,cat__Food_Category_Fruits,0.04193847
+Without_Weather_and_Promotion,42,cat__Food_Category_Meat,0.040091965
+Without_Weather_and_Promotion,42,cat__Food_Category_Prepared Food,0.047870044
+Without_Weather_and_Promotion,42,cat__Food_Category_Vegetables,0.03758022
+Without_Weather_and_Promotion,63,num__Purchase_Quantity,0.079336256
+Without_Weather_and_Promotion,63,num__Shelf_Life_Days,0.06787098
+Without_Weather_and_Promotion,63,num__Storage_Temperature,0.04744041
+Without_Weather_and_Promotion,63,num__Month,0.03542311
+Without_Weather_and_Promotion,63,num__Day_of_Week,0.03781962
+Without_Weather_and_Promotion,63,num__Day_of_Month,0.03890891
+Without_Weather_and_Promotion,63,num__Month_Sin,0.03784909
+Without_Weather_and_Promotion,63,num__Month_Cos,0.037725724
+Without_Weather_and_Promotion,63,cat__Business_Type_Cafeteria,0.09580711
+Without_Weather_and_Promotion,63,cat__Business_Type_Cloud Kitchen,0.08138202
+Without_Weather_and_Promotion,63,cat__Business_Type_Restaurant,0.065690726
+Without_Weather_and_Promotion,63,cat__Business_Type_Supermarket,0.12531176
+Without_Weather_and_Promotion,63,cat__Food_Category_Bakery,0.03348583
+Without_Weather_and_Promotion,63,cat__Food_Category_Dairy,0.04788488
+Without_Weather_and_Promotion,63,cat__Food_Category_Fruits,0.042654824
+Without_Weather_and_Promotion,63,cat__Food_Category_Meat,0.037133757
+Without_Weather_and_Promotion,63,cat__Food_Category_Prepared Food,0.05128093
+Without_Weather_and_Promotion,63,cat__Food_Category_Vegetables,0.036994148
+Without_Weather_and_Promotion,84,num__Purchase_Quantity,0.075689435
+Without_Weather_and_Promotion,84,num__Shelf_Life_Days,0.06622054
+Without_Weather_and_Promotion,84,num__Storage_Temperature,0.0459261
+Without_Weather_and_Promotion,84,num__Month,0.03522614
+Without_Weather_and_Promotion,84,num__Day_of_Week,0.038163107
+Without_Weather_and_Promotion,84,num__Day_of_Month,0.038374938
+Without_Weather_and_Promotion,84,num__Month_Sin,0.03768512
+Without_Weather_and_Promotion,84,num__Month_Cos,0.037424076
+Without_Weather_and_Promotion,84,cat__Business_Type_Cafeteria,0.093340755
+Without_Weather_and_Promotion,84,cat__Business_Type_Cloud Kitchen,0.08749881
+Without_Weather_and_Promotion,84,cat__Business_Type_Restaurant,0.06806889
+Without_Weather_and_Promotion,84,cat__Business_Type_Supermarket,0.12649953
+Without_Weather_and_Promotion,84,cat__Food_Category_Bakery,0.032658637
+Without_Weather_and_Promotion,84,cat__Food_Category_Dairy,0.0512701
+Without_Weather_and_Promotion,84,cat__Food_Category_Fruits,0.039473828
+Without_Weather_and_Promotion,84,cat__Food_Category_Meat,0.037935022
+Without_Weather_and_Promotion,84,cat__Food_Category_Prepared Food,0.04980936
+Without_Weather_and_Promotion,84,cat__Food_Category_Vegetables,0.03873555
+Without_Weather_and_Promotion,105,num__Purchase_Quantity,0.07642475
+Without_Weather_and_Promotion,105,num__Shelf_Life_Days,0.07052353
+Without_Weather_and_Promotion,105,num__Storage_Temperature,0.04593906
+Without_Weather_and_Promotion,105,num__Month,0.03534285
+Without_Weather_and_Promotion,105,num__Day_of_Week,0.03813965
+Without_Weather_and_Promotion,105,num__Day_of_Month,0.037330516
+Without_Weather_and_Promotion,105,num__Month_Sin,0.03714239
+Without_Weather_and_Promotion,105,num__Month_Cos,0.037526164
+Without_Weather_and_Promotion,105,cat__Business_Type_Cafeteria,0.099498846
+Without_Weather_and_Promotion,105,cat__Business_Type_Cloud Kitchen,0.08180069
+Without_Weather_and_Promotion,105,cat__Business_Type_Restaurant,0.070975624
+Without_Weather_and_Promotion,105,cat__Business_Type_Supermarket,0.12267368
+Without_Weather_and_Promotion,105,cat__Food_Category_Bakery,0.036803246
+Without_Weather_and_Promotion,105,cat__Food_Category_Dairy,0.04743715
+Without_Weather_and_Promotion,105,cat__Food_Category_Fruits,0.039475963
+Without_Weather_and_Promotion,105,cat__Food_Category_Meat,0.037612524
+Without_Weather_and_Promotion,105,cat__Food_Category_Prepared Food,0.047711283
+Without_Weather_and_Promotion,105,cat__Food_Category_Vegetables,0.03764214
